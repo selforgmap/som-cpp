@@ -3,4 +3,4 @@ project(som)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(som src/main.cpp)
+add_executable(som src/main.cpp src/config.h src/utils/csv_loader.cpp src/utils/csv_loader.h)
