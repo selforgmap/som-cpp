@@ -12,7 +12,6 @@ using namespace std;
 
 namespace utils {
 
-// Load CSV file
 vector<vector<string>> load_csv(string filename){
     // Load file
     ifstream data(filename);

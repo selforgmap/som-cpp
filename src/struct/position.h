@@ -5,6 +5,13 @@
 #ifndef SOM_POSITION_H
 #define SOM_POSITION_H
 
-struct Position { int x; int y; };
+/**
+ * Struct for position
+ * Represent x,y coordinates of a position
+ */
+struct Position {
+    int x;
+    int y;
+};
 
 #endif //SOM_POSITION_H

@@ -11,7 +11,12 @@
 
 namespace utils {
 
-std::vector<std::vector<std::string>> load_csv(std::string);
+/**
+ * Load CSV file to a vector
+ * @param filename Filename/Path of the CSV file
+ * @return Vector of the dataset
+ */
+std::vector<std::vector<std::string>> load_csv(std::string filename);
 
 } // namespace utils
 
