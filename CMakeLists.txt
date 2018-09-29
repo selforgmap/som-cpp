@@ -1,3 +1,12 @@
+set(BOOST_ROOT "/usr/local/Cellar/boost/1.67.0_1")
+
+find_package(Boost)
+
+
+if(NOT Boost_FOUND)
+    message(FATAL_ERROR "Could not find boost!")
+endif()
+
 cmake_minimum_required(VERSION 3.12)
 project(som)
 
