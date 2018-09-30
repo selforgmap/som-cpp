@@ -11,7 +11,7 @@ using namespace std;
 
 int main() {
     // New trainer session
-    Trainer trainer;
+    trainer trainer;
 
     // Load dataset
     trainer.dataset = utils::load_csv(INPUT_PATH);
