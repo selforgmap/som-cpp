@@ -17,7 +17,11 @@ $ cmake -H. -Bbuild
 $ cd build
 $ cmake --build .
 ```
-
+## Run program
+To start the program,
+```
+$ ./bin/som
+```
 ## Run tests
 Using `unit_tests`:
 ```
