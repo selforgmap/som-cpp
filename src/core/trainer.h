@@ -4,13 +4,15 @@
 
 #include <vector>
 
+#include "../grid/grid.h"
+
 #ifndef SOM_TRAINER_H
 #define SOM_TRAINER_H
 
 class trainer {
 public:
     std::vector<std::vector<std::string>> dataset;
-
+    Grid* grid;
 };
 
 #endif //SOM_TRAINER_H

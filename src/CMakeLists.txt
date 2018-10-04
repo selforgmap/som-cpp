@@ -8,8 +8,10 @@ add_executable(som
         config.h
         utils/csv_loader.cpp
         utils/csv_loader.h
-        topology/rectangular.cpp
-        topology/rectangular.h
+        grid/rectangular.cpp
+        grid/rectangular.h
+        grid/grid.cpp
+        grid/grid.h
         struct/position.h
         utils/math_helper.cpp
         utils/math_helper.h
@@ -20,6 +22,17 @@ add_library(som_test "")
 target_sources(som_test
         PRIVATE
             main.cpp
+            main.h
+            config.h
+            utils/csv_loader.cpp
+            utils/csv_loader.h
+            grid/rectangular.cpp
+            grid/rectangular.h
+            grid/grid.cpp
+            grid/grid.h
+            struct/position.h
+            utils/math_helper.cpp
+            utils/math_helper.h
         PUBLIC
             ${CMAKE_CURRENT_LIST_DIR}/main.h
         )

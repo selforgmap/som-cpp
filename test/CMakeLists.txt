@@ -5,6 +5,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 add_executable(
         unit_tests
         main_test.cpp
+        grid_test.cpp
         )
 
 target_link_libraries(
