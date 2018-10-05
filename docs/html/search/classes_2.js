@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trainer',['Trainer',['../class_trainer.html',1,'']]]
+  ['rectangular',['Rectangular',['../class_rectangular.html',1,'']]]
 ];

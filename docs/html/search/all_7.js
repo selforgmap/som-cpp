@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['main_2eh',['main.h',['../main_8h.html',1,'']]],
-  ['math_5fhelper_2ecpp',['math_helper.cpp',['../math__helper_8cpp.html',1,'']]],
-  ['math_5fhelper_2eh',['math_helper.h',['../math__helper_8h.html',1,'']]]
+  ['load_5fcsv',['load_csv',['../namespaceutils.html#a7598f55c583cffb9ba13f179808537fa',1,'utils::load_csv(string filename)'],['../namespaceutils.html#a5c44fc482aedf83775742090d60858f6',1,'utils::load_csv(std::string filename)']]]
 ];

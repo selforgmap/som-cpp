@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../struct_position.html#aeda152ffeee17ae5be9c02327b2408d8',1,'Position']]]
+  ['width',['width',['../class_grid.html#a811c4e2e31bacb9b811aaaf105aeca00',1,'Grid']]]
 ];

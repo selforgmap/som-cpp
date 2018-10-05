@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['euclidean_5fdistance',['euclidean_distance',['../namespaceutils.html#aacc30c431e23241f540bdcf1a1b8d140',1,'utils']]]
+  ['calculatedistance',['CalculateDistance',['../class_grid.html#a463827a577dd48e3479c06deb848c619',1,'Grid']]]
 ];

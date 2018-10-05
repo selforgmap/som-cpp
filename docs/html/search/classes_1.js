@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rectangular',['Rectangular',['../class_rectangular.html',1,'']]]
+  ['position',['Position',['../struct_position.html',1,'']]]
 ];

@@ -1,6 +1,7 @@
 var annotated_dup =
 [
+    [ "Grid", "class_grid.html", "class_grid" ],
     [ "Position", "struct_position.html", "struct_position" ],
     [ "Rectangular", "class_rectangular.html", "class_rectangular" ],
-    [ "Trainer", "class_trainer.html", "class_trainer" ]
+    [ "trainer", "classtrainer.html", "classtrainer" ]
 ];

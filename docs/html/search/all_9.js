@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['position',['Position',['../struct_position.html',1,'']]],
-  ['position_2eh',['position.h',['../position_8h.html',1,'']]]
+  ['no_5fof_5fneurones',['no_of_neurones',['../class_grid.html#a60331ff4ec77ec6d67a6483ce24b30dc',1,'Grid']]]
 ];

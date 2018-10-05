@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width',['width',['../class_rectangular.html#a6a74241795eda772d1f9df3eba21d958',1,'Rectangular']]]
+  ['no_5fof_5fneurones',['no_of_neurones',['../class_grid.html#a60331ff4ec77ec6d67a6483ce24b30dc',1,'Grid']]]
 ];
