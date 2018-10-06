@@ -10,13 +10,17 @@
 
 class Rectangular : public Grid {
 public:
-    /**
-     * Constructor of rectangular
-     * @param width Width of the lattice
-     * @param height Height of the lattice
-     */
+     /**
+      * Constructor of rectangular
+      * @param width Width of the lattice
+      * @param height Height of the lattice
+      * @param dimention Dimention of the dataset
+      * @param random_initialization Random Initialization of data
+      */
     Rectangular(int width,
-                int height);
+                int height,
+                int dimention,
+                bool random_initialization = true);
 
 
     /**

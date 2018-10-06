@@ -9,7 +9,7 @@ using namespace std;
 #define SOM_CONFIG_H
 
 // App config
-const string INPUT_PATH = "../resources/input.csv";
+const string INPUT_PATH = "../../resources/input.csv";
 
 // Model config
 const int DEFAULT_HEIGHT    = 10;

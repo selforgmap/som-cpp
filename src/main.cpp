@@ -18,7 +18,7 @@ int main() {
     trainer.dataset = utils::load_csv(INPUT_PATH);
 
     // Create new grid
-    trainer.grid = new Rectangular(10, 10);
+    trainer.grid = new Rectangular(10, 10, 3);
 
     std::cout << "Program is running..." << std::endl;
     return 0;

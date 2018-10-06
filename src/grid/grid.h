@@ -12,7 +12,28 @@ class Grid {
 public:
     int width;
     int height;
+    int dimention;
     int no_of_neurones;
+    int* data;
+
+    /**
+     * Constructor
+     * @param width Width of the grid
+     * @param height Height of the grid
+     * @param dimention Dimention of dataset
+     * @param random_initialization Random Initialization of data
+     */
+    Grid(int width, int height, int dimention, bool random_initialization = true){
+        this->width = width;
+        this->height = height;
+        this->dimention = dimention;
+        this->no_of_neurones = width * height;
+
+        if (random_initialization){
+            // GENERATE RANDOM VALUES
+        }
+
+    }
 
     /**
      * Get the (x,y) coordinates of a neurone

@@ -12,24 +12,29 @@ using namespace std;
 
 namespace utils {
 
-vector<vector<string>> load_csv(string filename){
+vector<vector<int>> load_csv(string filename){
     // Load file
     ifstream data(filename);
     string line;
-    vector<vector<string>> dataset;
+    vector<vector<int>> dataset;
 
     // Read lines
     while(std::getline(data,line))
     {
         stringstream line_stream(line);
         string cell;
-        vector<string> parsed_row;
+        vector<int> parsed_row;
         while(std::getline(line_stream, cell, ','))
         {
-            parsed_row.push_back(cell);
+            parsed_row.push_back(stoi(cell));
         }
 
         dataset.push_back(parsed_row);
+    }
+
+    // Print error
+    if (errno) {
+        cout << strerror(errno) << endl;
     }
 
     return dataset;
