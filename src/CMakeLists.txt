@@ -15,6 +15,8 @@ add_executable(som
         struct/position.h
         utils/math_helper.cpp
         utils/math_helper.h
+        utils/trainer_helper.cpp
+        utils/trainer_helper.h
         )
 
 add_library(som_test "")
@@ -33,6 +35,8 @@ target_sources(som_test
             struct/position.h
             utils/math_helper.cpp
             utils/math_helper.h
+            utils/trainer_helper.cpp
+            utils/trainer_helper.h
         PUBLIC
             ${CMAKE_CURRENT_LIST_DIR}/main.h
         )

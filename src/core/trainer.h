@@ -11,7 +11,7 @@
 
 class trainer {
 public:
-    std::vector<std::vector<int>> dataset;
+    std::vector<std::vector<int>> input_vector;
     Grid* grid;
 };
 

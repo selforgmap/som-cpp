@@ -10,8 +10,6 @@
 
 using namespace std;
 
-namespace utils {
-
 vector<vector<int>> load_csv(string filename){
     // Load file
     ifstream data(filename);
@@ -40,5 +38,3 @@ vector<vector<int>> load_csv(string filename){
     return dataset;
 
 }
-
-} // namespace utils

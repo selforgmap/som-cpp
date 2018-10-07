@@ -5,8 +5,12 @@
 #ifndef SOM_GRID_H
 #define SOM_GRID_H
 
+#include <vector>
+
 #include "../struct/position.h"
 #include "../utils/math_helper.h"
+
+using namespace std;
 
 class Grid {
 public:
@@ -14,7 +18,7 @@ public:
     int height;
     int dimention;
     int no_of_neurones;
-    int* data;
+    vector<vector<int>> neurones;
 
     /**
      * Constructor
