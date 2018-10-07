@@ -18,7 +18,7 @@ public:
     int height;
     int dimention;
     int no_of_neurones;
-    vector<vector<int>> neurones;
+    vector<vector<float>> neurones;
 
     /**
      * Constructor
@@ -47,12 +47,22 @@ public:
     virtual Position GetPosition(int neurone_index) = 0;
 
     /**
+     * Find the Best Matching Unit (BMU) for a given vector
+     * @param input_vector Input vector to find BMU
+     * @return Index of the neurone
+     */
+    int FindBMU(vector<float> input_vector);
+
+
+    /**
      * Get distance between two neurones
      * @param neurone1 Index of the neurone 1
      * @param neurone2 Index of the neurone 2
      * @return Distance between two neurones
      */
-     static double CalculateDistance(Position pos1, Position pos2);
+     static float CalculateDistance(Position pos1, Position pos2);
+
+
 };
 
 

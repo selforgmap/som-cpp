@@ -23,8 +23,25 @@ TEST(CalculateDistance, TwoPointers){
  * Test Get Position of Rectangular Grid
  */
 TEST(RectangularGrid, GetPosition){
-    Grid* grid = new Rectangular(10, 10);
+    Grid* grid = new Rectangular(10, 10, 3);
     Position pos = grid->GetPosition(25);
     ASSERT_EQ(pos.x, 5);
     ASSERT_EQ(pos.y, 2);
+}
+
+/**
+ * Test Find BMU
+ */
+TEST(FindBMU, Manual){
+    Grid* grid = new Rectangular(2, 2, 3, false);
+
+    grid->neurones.push_back(vector<float>{10, 20, 30});
+    grid->neurones.push_back(vector<float>{-10, 2, 7});
+    grid->neurones.push_back(vector<float>{1, 2, 5});
+    grid->neurones.push_back(vector<float>{-5, -4, -3});
+
+    vector<float>vec = {3,4,5};
+    int bmu = grid->FindBMU(vec);
+
+    ASSERT_EQ(bmu, 2);
 }

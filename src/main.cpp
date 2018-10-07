@@ -17,20 +17,14 @@ int main() {
     trainer trainer;
 
     // Load dataset
-    trainer.input_vector = load_csv(INPUT_PATH);
+    trainer.input_space = load_csv(INPUT_PATH);
 
     // Create new grid
-    trainer.grid = new Rectangular(10, 10, 3);
+    trainer.grid = new Rectangular(3, 3, 3);
 
     // Initialize random weights
     initialize_random_weights(trainer.grid);
 
-
-    for (vector<int> neu : trainer.grid->neurones){
-        for (int w : neu){
-            cout << w << endl;
-        }
-    }
 
     std::cout << "Program is running..." << std::endl;
     return 0;

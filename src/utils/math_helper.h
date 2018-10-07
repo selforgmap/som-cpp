@@ -13,6 +13,6 @@
  * @param pos2 Position of neurone 2
  * @return Euclidean distance between neurones
  */
-double euclidean_distance(Position pos1, Position pos2);
+float euclidean_distance(Position pos1, Position pos2);
 
 #endif //SOM_MATH_HELPER_H

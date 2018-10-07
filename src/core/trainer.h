@@ -11,7 +11,7 @@
 
 class trainer {
 public:
-    std::vector<std::vector<int>> input_vector;
+    std::vector<std::vector<float>> input_space;
     Grid* grid;
 };
 

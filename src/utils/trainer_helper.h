@@ -21,4 +21,12 @@ void initialize_random_weights(
         int min = DEFAULT_MIN_WEIGHT,
         int max = DEFAULT_MAX_WEIGHT);
 
+/**
+ * Calculate the euclidean distance between two vectors
+ * @param input_vector Input vector
+ * @param weight_vector Weight vector
+ * @return Squared euclidean distance
+ */
+float squared_euclidean_distance(vector<float> input_vector, vector<float> weight_vector);
+
 #endif //SOM_TRAINER_HELPER_H
