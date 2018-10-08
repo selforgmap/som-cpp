@@ -14,12 +14,12 @@
 void initialize_random_weights(Grid* grid, int min, int max){
     srand(time(0));
 
-    for (int i = 0; i < grid->no_of_neurones; ++i){
+    for (int i = 0; i < grid->Size(); ++i){
         std::vector<float> neu;
         for (int j = 0; j < grid->dimention; ++j){
             neu.push_back(rand() % ((max - min) + 1) + min);
         }
-        grid->neurones.push_back(neu);
+        grid->nodes[i].weight_vector = neu;
     }
 
 }

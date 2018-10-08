@@ -12,7 +12,7 @@ add_executable(som
         grid/rectangular.h
         grid/grid.cpp
         grid/grid.h
-        struct/position.h
+        struct/node.h
         utils/math_helper.cpp
         utils/math_helper.h
         utils/trainer_helper.cpp
@@ -32,7 +32,7 @@ target_sources(som_test
             grid/rectangular.h
             grid/grid.cpp
             grid/grid.h
-            struct/position.h
+            struct/node.h
             utils/math_helper.cpp
             utils/math_helper.h
             utils/trainer_helper.cpp

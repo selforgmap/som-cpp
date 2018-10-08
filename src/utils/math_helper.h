@@ -5,14 +5,15 @@
 #ifndef SOM_MATH_HELPER_H
 #define SOM_MATH_HELPER_H
 
-#include "../struct/position.h"
 
-/**
- * Get Euclidean distance of two points
- * @param pos1 Position of neurone 1
- * @param pos2 Position of neurone 2
- * @return Euclidean distance between neurones
- */
-float euclidean_distance(Position pos1, Position pos2);
+ /**
+  * Get Euclidean distance of two points
+  * @param x1 X coordinate of point 1
+  * @param y1 Y coordinate of point 1
+  * @param x2 X coordinate of point 2
+  * @param y2 Y coordinate of point 2
+  * @return Distance between two points
+  */
+float euclidean_distance(int x1, int y1, int x2, int y2);
 
 #endif //SOM_MATH_HELPER_H

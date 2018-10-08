@@ -7,44 +7,33 @@
 
 #include <vector>
 
-#include "../struct/position.h"
 #include "../utils/math_helper.h"
+#include "../struct/node.h"
 
 using namespace std;
 
 class Grid {
 public:
-    int width;
-    int height;
+    int x_dim;
+    int y_dim;
     int dimention;
-    int no_of_neurones;
-    vector<vector<float>> neurones;
+    vector<Node> nodes;
 
     /**
      * Constructor
-     * @param width Width of the grid
-     * @param height Height of the grid
+     * @param x_dim X Dimention of the grid
+     * @param y_dim Y Dimention of the grid
      * @param dimention Dimention of dataset
      * @param random_initialization Random Initialization of data
      */
-    Grid(int width, int height, int dimention, bool random_initialization = true){
-        this->width = width;
-        this->height = height;
-        this->dimention = dimention;
-        this->no_of_neurones = width * height;
-
-        if (random_initialization){
-            // GENERATE RANDOM VALUES
-        }
-
-    }
+    Grid(int x_dim, int y_dim, int dimention, bool random_initialization = true);
 
     /**
-     * Get the (x,y) coordinates of a neurone
-     * @param neurone_index Index of the neurone
-     * @return Position of the neurone
+     * Initialize Nodes
+     * Set (x,y) coordinates in each node
+     * Calculate distances between each pair of nodes
      */
-    virtual Position GetPosition(int neurone_index) = 0;
+    void InitializeNodes();
 
     /**
      * Find the Best Matching Unit (BMU) for a given vector
@@ -53,15 +42,32 @@ public:
      */
     int FindBMU(vector<float> input_vector);
 
+    /**
+     * Calculate the distance between two nodes
+     * @param node1 Node 1
+     * @param node2 Node 2
+     * @return The distance
+     */
+    float CalculateDistance(Node node1, Node node2);
 
     /**
-     * Get distance between two neurones
-     * @param neurone1 Index of the neurone 1
-     * @param neurone2 Index of the neurone 2
-     * @return Distance between two neurones
+     * Get the size of the weight matrix / nodes vector
+     * @return Size
      */
-     static float CalculateDistance(Position pos1, Position pos2);
+    int Size();
 
+
+    /**
+     * Calculate the (x,y) coordinates of the location of a node
+     * @param node_index Index of the node
+     * @return Pair of x,y coordinates
+     */
+    virtual pair<float, float> CalculateLocation(int node_index) = 0;
+
+
+
+private:
+    void _CalculateDistances();
 
 };
 

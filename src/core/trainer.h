@@ -9,7 +9,10 @@
 #ifndef SOM_TRAINER_H
 #define SOM_TRAINER_H
 
-class trainer {
+/**
+ * Trainer class
+ */
+class Trainer {
 public:
     std::vector<std::vector<float>> input_space;
     Grid* grid;

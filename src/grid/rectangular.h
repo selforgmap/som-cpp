@@ -5,30 +5,31 @@
 #ifndef SOM_RECTANGULAR_H
 #define SOM_RECTANGULAR_H
 
-#include "../struct/position.h"
 #include "grid.h"
 
 class Rectangular : public Grid {
 public:
      /**
       * Constructor of rectangular
-      * @param width Width of the lattice
-      * @param height Height of the lattice
+      * @param x_dim X Dimention of the lattice
+      * @param y_dim Y Dimention of the lattice
       * @param dimention Dimention of the dataset
       * @param random_initialization Random Initialization of data
       */
-    Rectangular(int width,
-                int height,
+    Rectangular(int x_dim,
+                int y_dim,
                 int dimention,
                 bool random_initialization = true);
 
 
     /**
-     * Get the (x,y) coordinates of a neurone
-     * @param neurone_index Index of the neurone
-     * @return Position of the neurone
+     * Calculate the (x,y) coordinates of the location of a node
+     * @param node_index Index of the node
+     * @return Pair of x,y coordinates
      */
-    Position GetPosition(int neurone_index);
+    pair<float, float> CalculateLocation(int node_index);
+
+
 
 };
 

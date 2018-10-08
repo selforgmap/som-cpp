@@ -9,18 +9,20 @@
 #include "grid/rectangular.h"
 
 #include "utils/trainer_helper.h"
+#include "struct/node.h"
 
 using namespace std;
 
 int main() {
     // New trainer session
-    trainer trainer;
+    Trainer trainer;
 
     // Load dataset
     trainer.input_space = load_csv(INPUT_PATH);
 
     // Create new grid
-    trainer.grid = new Rectangular(3, 3, 3);
+    trainer.grid = new Rectangular(10, 10, 3);
+    trainer.grid->InitializeNodes();
 
     // Initialize random weights
     initialize_random_weights(trainer.grid);
