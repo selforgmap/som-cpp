@@ -56,6 +56,11 @@ public:
      */
     int Size();
 
+    /**
+     * Return grid information
+     */
+    string ToString();
+
 
     /**
      * Calculate the (x,y) coordinates of the location of a node
@@ -64,10 +69,6 @@ public:
      */
     virtual pair<float, float> CalculateLocation(int node_index) = 0;
 
-
-
-private:
-    void _CalculateDistances();
 
 };
 

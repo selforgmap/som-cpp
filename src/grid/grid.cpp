@@ -5,12 +5,18 @@
 #include "grid.h"
 
 #include <limits>
+#include <sstream>
+#include <iterator>
+#include <algorithm>
+
 
 #include "../utils/math_helper.h"
 #include "../utils/trainer_helper.h"
 #include "../struct/node.h"
 
 #include <iostream>
+
+
 
 Grid::Grid(int x_dim, int y_dim, int dimention, bool random_initialization){
     this->x_dim     = x_dim;
@@ -65,6 +71,27 @@ int Grid::FindBMU(vector<float> input_vector) {
         }
     }
     return bmu;
+}
+
+string Grid::ToString() {
+    std::ostringstream oss;
+
+    for (int i = 0; i < this->Size(); ++i){
+        oss << "[";
+        for (int j = 0; j < this->dimention; ++j){
+            oss << this->nodes[i].weight_vector[j];
+            if (this->dimention != (j + 1)){
+                oss << ",";
+            }
+        }
+        oss << "]\t";
+
+        if ((i+1) % this->x_dim == 0){
+            oss << "\n";
+        }
+    }
+
+    return oss.str();
 }
 
 int Grid::Size(){

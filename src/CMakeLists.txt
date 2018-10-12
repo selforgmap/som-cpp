@@ -6,6 +6,8 @@ add_executable(som
         main.cpp
         main.h
         config.h
+        core/trainer.cpp
+        core/trainer.h
         utils/csv_loader.cpp
         utils/csv_loader.h
         grid/rectangular.cpp
@@ -26,6 +28,8 @@ target_sources(som_test
             main.cpp
             main.h
             config.h
+            core/trainer.cpp
+            core/trainer.h
             utils/csv_loader.cpp
             utils/csv_loader.h
             grid/rectangular.cpp
