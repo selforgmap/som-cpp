@@ -18,9 +18,11 @@ class Trainer {
 public:
     vector<vector<float>> input_space;
     Grid* grid;
-    int iterations;
+    int iteration_limit;
     float learning_rate;
-    int initial_radius;
+
+    int current_iteration;
+    int selected_input_vector_index;
 
     /**
      * Constructor
@@ -32,9 +34,21 @@ public:
      */
     Trainer(Grid* grid,
             vector<vector<float>> input_space,
-            int iterations,
-            float learning_rate,
-            int initial_radius);
+            int iteration_limit,
+            float learning_rate);
+
+
+    /**
+     * Get the next input vector
+     * @param is_random Random selection of the next input vector
+     * @return The next input vector
+     */
+    vector<float> GetNextInputVector(bool is_random = false);
+
+    /**
+     * Start training
+     */
+    void Train();
 };
 
 #endif //SOM_TRAINER_H

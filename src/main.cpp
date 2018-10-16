@@ -14,24 +14,30 @@
 using namespace std;
 
 int main() {
+
+    // Parameters
+    int x_dim           = 10;
+    int y_dim           = 10;
+    int dimention       = 3;
+    int iteration_limit = 4;
+    float learning_rate = 0.4;
+
     // Load dataset
     vector<vector<float>> input_space = load_csv(INPUT_PATH);
 
     // Create new grid
-    Grid* grid = new Rectangular(10, 10, 3);
+    Grid* grid = new Rectangular(x_dim, y_dim, dimention);
     grid->InitializeNodes();
 
     // Initialize random weights
     initialize_random_weights(grid);
 
-    int iterations      = 100;
-    int initial_radius  = 10;
-    float learning_rate = 0.4;
-
     // New trainer session
-    Trainer trainer(grid, input_space, iterations, learning_rate, initial_radius);
+    Trainer trainer(grid, input_space, iteration_limit, learning_rate);
 
     cout << grid->ToString();
+
+    trainer.Train();
 
     std::cout << "Program is running..." << std::endl;
     return 0;

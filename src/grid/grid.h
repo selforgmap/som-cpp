@@ -57,6 +57,13 @@ public:
     int Size();
 
     /**
+     * Get a particular node by it's index
+     * @param node_index Index of the node
+     * @return Node
+     */
+    Node GetNode(int node_index);
+
+    /**
      * Return grid information
      */
     string ToString();

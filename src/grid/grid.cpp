@@ -24,10 +24,9 @@ Grid::Grid(int x_dim, int y_dim, int dimention, bool random_initialization){
     this->dimention = dimention;
 
     this->nodes.resize(x_dim * y_dim);
-//    this->InitializeNodes();
 
     if (random_initialization){
-        // GENERATE RANDOM VALUES
+//        this->InitializeNodes();
     }
 }
 
@@ -71,6 +70,10 @@ int Grid::FindBMU(vector<float> input_vector) {
         }
     }
     return bmu;
+}
+
+Node Grid::GetNode(int node_index){
+    return this->nodes[node_index];
 }
 
 string Grid::ToString() {
