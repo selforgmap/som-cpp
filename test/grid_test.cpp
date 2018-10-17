@@ -3,9 +3,8 @@
 //
 
 #include "gtest/gtest.h"
-#include "grid/grid.h"
-#include "grid/rectangular.h"
-#include "utils/math_helper.h"
+#include "core/grid.h"
+#include "grids/rectangular.h"
 #include "core/trainer.h"
 #include "struct/node.h"
 

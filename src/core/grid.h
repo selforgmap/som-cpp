@@ -7,7 +7,6 @@
 
 #include <vector>
 
-#include "../utils/math_helper.h"
 #include "../struct/node.h"
 
 using namespace std;

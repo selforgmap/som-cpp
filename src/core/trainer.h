@@ -4,7 +4,7 @@
 
 #include <vector>
 
-#include "../grid/grid.h"
+#include "grid.h"
 
 #ifndef SOM_TRAINER_H
 #define SOM_TRAINER_H
@@ -33,7 +33,7 @@ public:
      * @param initial_radius Initial radius
      */
     Trainer(Grid* grid,
-            vector<vector<float>> input_space,
+            vector<vector<float>> &input_space,
             int iteration_limit,
             float learning_rate);
 

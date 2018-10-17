@@ -5,7 +5,7 @@
 #ifndef SOM_RECTANGULAR_H
 #define SOM_RECTANGULAR_H
 
-#include "grid.h"
+#include "../core/grid.h"
 
 class Rectangular : public Grid {
 public:

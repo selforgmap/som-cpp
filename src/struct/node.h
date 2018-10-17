@@ -14,8 +14,8 @@ using namespace std;
  */
 struct Node {
     vector<float> weight_vector;
-    int x_pos;
-    int y_pos;
+    float x_pos;
+    float y_pos;
     vector<float> distance_to;
 };
 

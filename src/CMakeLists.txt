@@ -10,37 +10,34 @@ add_executable(som
         core/trainer.h
         utils/csv_loader.cpp
         utils/csv_loader.h
-        grid/rectangular.cpp
-        grid/rectangular.h
-        grid/grid.cpp
-        grid/grid.h
+        grids/rectangular.cpp
+        grids/rectangular.h
+        core/grid.cpp
+        core/grid.h
         struct/node.h
-        utils/math_helper.cpp
-        utils/math_helper.h
-        utils/trainer_helper.cpp
-        utils/trainer_helper.h
+        helpers/trainer_helper.cpp
+        helpers/trainer_helper.h
         )
 
 add_library(som_test "")
 
 target_sources(som_test
         PRIVATE
-            main.cpp
-            main.h
-            config.h
-            core/trainer.cpp
-            core/trainer.h
-            utils/csv_loader.cpp
-            utils/csv_loader.h
-            grid/rectangular.cpp
-            grid/rectangular.h
-            grid/grid.cpp
-            grid/grid.h
-            struct/node.h
-            utils/math_helper.cpp
-            utils/math_helper.h
-            utils/trainer_helper.cpp
-            utils/trainer_helper.h
+        main.cpp
+        main.h
+        config.h
+        core/trainer.cpp
+        core/trainer.h
+        utils/csv_loader.cpp
+        utils/csv_loader.h
+        grids/rectangular.cpp
+        grids/rectangular.h
+        core/grid.cpp
+        core/grid.h
+        struct/node.h
+        helpers/trainer_helper.cpp
+        helpers/trainer_helper.h
+
         PUBLIC
             ${CMAKE_CURRENT_LIST_DIR}/main.h
         )

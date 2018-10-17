@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-Trainer::Trainer(Grid* grid, vector<vector<float>> input_space, int iteration_limit, float learning_rate){
+Trainer::Trainer(Grid* grid, vector<vector<float>> &input_space, int iteration_limit, float learning_rate){
     this->grid              = grid;
     this->input_space       = input_space;
     this->iteration_limit   = iteration_limit;
@@ -20,9 +20,9 @@ Trainer::Trainer(Grid* grid, vector<vector<float>> input_space, int iteration_li
 vector<float> Trainer::GetNextInputVector(bool is_random) {
     // Select next input vector index
     if (is_random){
-        this->selected_input_vector_index = rand() % this->input_space.size();
+        this->selected_input_vector_index = (int)(rand() % this->input_space.size());
     } else {
-        this->selected_input_vector_index = (this->selected_input_vector_index + 1) % this->input_space.size();
+        this->selected_input_vector_index = (int)((this->selected_input_vector_index + 1) % this->input_space.size());
     }
 
     return this->input_space[this->selected_input_vector_index];
@@ -36,6 +36,7 @@ void Trainer::Train(){
 
         // Find the best matching unit
         int bmu_index = this->grid->FindBMU(input_vector);
+
 
 
     }

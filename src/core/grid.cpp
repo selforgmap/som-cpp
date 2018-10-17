@@ -10,8 +10,7 @@
 #include <algorithm>
 
 
-#include "../utils/math_helper.h"
-#include "../utils/trainer_helper.h"
+#include "../helpers/trainer_helper.h"
 #include "../struct/node.h"
 
 #include <iostream>
@@ -23,7 +22,7 @@ Grid::Grid(int x_dim, int y_dim, int dimention, bool random_initialization){
     this->y_dim     = y_dim;
     this->dimention = dimention;
 
-    this->nodes.resize(x_dim * y_dim);
+    this->nodes.resize((u_long)x_dim * y_dim);
 
     if (random_initialization){
 //        this->InitializeNodes();
@@ -32,7 +31,7 @@ Grid::Grid(int x_dim, int y_dim, int dimention, bool random_initialization){
 
 
 void Grid::InitializeNodes() {
-    this->nodes.resize(this->Size());
+    this->nodes.resize((u_long)this->Size());
 
     // Set coordinates
     for (int i = 0; i < this->Size(); ++i){
@@ -43,7 +42,7 @@ void Grid::InitializeNodes() {
 
     // Set distances between nodes
     for (int i = 0; i < this->Size(); ++i){
-        this->nodes[i].distance_to = vector<float>(this->Size());
+        this->nodes[i].distance_to = vector<float>((u_long)this->Size());
     }
     for (int i = 0; i < this->Size(); ++i){
         for (int j = i; j < this->Size(); ++j){
@@ -98,5 +97,5 @@ string Grid::ToString() {
 }
 
 int Grid::Size(){
-    return this->nodes.size();
+    return (int)this->nodes.size();
 }

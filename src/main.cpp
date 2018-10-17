@@ -6,9 +6,9 @@
 #include "config.h"
 #include "utils/csv_loader.h"
 #include "core/trainer.h"
-#include "grid/rectangular.h"
+#include "grids/rectangular.h"
 
-#include "utils/trainer_helper.h"
+#include "helpers/trainer_helper.h"
 #include "struct/node.h"
 
 using namespace std;
@@ -19,13 +19,13 @@ int main() {
     int x_dim           = 10;
     int y_dim           = 10;
     int dimention       = 3;
-    int iteration_limit = 4;
+    int iteration_limit = 10;
     float learning_rate = 0.4;
 
     // Load dataset
     vector<vector<float>> input_space = load_csv(INPUT_PATH);
 
-    // Create new grid
+    // Create new grids
     Grid* grid = new Rectangular(x_dim, y_dim, dimention);
     grid->InitializeNodes();
 
