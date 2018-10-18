@@ -19,8 +19,8 @@ int main() {
     int x_dim           = 10;
     int y_dim           = 10;
     int dimention       = 3;
-    int iteration_limit = 10;
-    float learning_rate = 0.4;
+    int iteration_limit = 200;
+    float learning_rate = 0.2;
 
     // Load dataset
     vector<vector<float>> input_space = load_csv(INPUT_PATH);
@@ -38,6 +38,8 @@ int main() {
     cout << grid->ToString();
 
     trainer.Train();
+
+    cout << grid->ToString();
 
     std::cout << "Program is running..." << std::endl;
     return 0;

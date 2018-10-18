@@ -19,7 +19,7 @@ public:
     vector<vector<float>> input_space;
     Grid* grid;
     int iteration_limit;
-    float learning_rate;
+    float starting_learning_rate;
 
     int current_iteration;
     int selected_input_vector_index;
@@ -29,13 +29,13 @@ public:
      * @param input_space Input space
      * @param grid Grid
      * @param iterations No of iterations
-     * @param learning_rate Learning rate (alpha)
+     * @param starting_learning_rate Starting learning rate (alpha)
      * @param initial_radius Initial radius
      */
     Trainer(Grid* grid,
             vector<vector<float>> &input_space,
             int iteration_limit,
-            float learning_rate);
+            float starting_learning_rate);
 
 
     /**
