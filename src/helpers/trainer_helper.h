@@ -18,8 +18,8 @@
  */
 void initialize_random_weights(
         Grid* grid,
-        int min = DEFAULT_MIN_WEIGHT,
-        int max = DEFAULT_MAX_WEIGHT);
+        int min,
+        int max);
 
 /**
  * Calculate the euclidean distance between two vectors

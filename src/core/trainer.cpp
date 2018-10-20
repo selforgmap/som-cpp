@@ -5,16 +5,26 @@
 #include "trainer.h"
 
 #include <iostream>
+#include <stdlib.h>
+#include <zconf.h>
 
 #include "../helpers/neighbourhood_function.h"
 #include "../helpers/learning_rate.h"
+#include "../grids/rectangular.h"
+#include "../helpers/trainer_helper.h"
 
-Trainer::Trainer(Grid* grid, vector<vector<float>> &input_space, int iteration_limit, float starting_learning_rate){
-    this->grid                   = grid;
-    this->input_space            = input_space;
-    this->iteration_limit        = iteration_limit;
-    this->starting_learning_rate = starting_learning_rate;
 
+Trainer::Trainer(Config config){
+    this->config = config;
+
+    // Greate grid
+    if (config.grid_type == "RECTANGULAR"){
+        this->grid = new Rectangular(config.x_dim, config.y_dim, config.dimention);
+    }
+    this->grid->InitializeNodes(); // TODO: Initialization method
+    initialize_random_weights(this->grid, config.min_node_weight, config.max_node_weight);
+
+    // Reset values
     this->current_iteration = 0;
     this->selected_input_vector_index = -1;
 }
@@ -31,9 +41,12 @@ vector<float> Trainer::GetNextInputVector(bool is_random) {
     return this->input_space[this->selected_input_vector_index];
 }
 
-void Trainer::Train(){
+
+void Trainer::Train(vector<vector<float>> &input_space){
+    this->input_space = input_space;
+
     // For each iteration
-    for (int i = 1; i <= this->iteration_limit; ++i){
+    for (int i = 1; i <= this->config.iteration_limit; ++i){
 
         // Get next input vector
         vector<float> input_vector = this->GetNextInputVector();
@@ -42,21 +55,18 @@ void Trainer::Train(){
         int bmu_index = this->grid->FindBMU(input_vector);
         Node bmu = this->grid->nodes[bmu_index];
 
-
-        cout << "iv:" << input_vector[0] << " " << input_vector[1] << " " << input_vector[2] << endl;
-        cout << "bmu:" << bmu_index << endl;
-        vector<float> wv = this->grid->nodes[bmu_index].weight_vector;
-        std::cout << wv[0] << " " << wv[1] << " " << wv[2] << endl;
-
         // Calculate learning rate
-        float learning_rate = constant_learning_rate(this->starting_learning_rate);
+        float learning_rate = constant_learning_rate(this->config.starting_learning_rate);
 
         // For each node
         for (int n = 0; n < this->grid->nodes.size(); ++n) {
             Node &node = this->grid->nodes[n];
 
             // Calculate neighbourhood value
-            float neighbourhood_value = bubble_neighbourhood(bmu, n, i);
+            float neighbourhood_value;
+            if (this->config.neighbourhood_function == "BUBBLE_NEIGHBOURHOOD"){
+                neighbourhood_value = bubble_neighbourhood(bmu, n, i);
+            }
 
             // Adapt the neurone
             for (int d = 0; d < this->grid->dimention; ++d) {
@@ -65,7 +75,6 @@ void Trainer::Train(){
             }
 
         }
-
 
     }
 }

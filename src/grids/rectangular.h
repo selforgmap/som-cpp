@@ -30,7 +30,6 @@ public:
     pair<float, float> CalculateLocation(int node_index);
 
 
-
 };
 
 

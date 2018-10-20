@@ -15,31 +15,32 @@ using namespace std;
 
 int main() {
 
-    // Parameters
-    int x_dim           = 10;
-    int y_dim           = 10;
-    int dimention       = 3;
-    int iteration_limit = 200;
-    float learning_rate = 0.2;
+    // Configurations
+    Config config;
+    config.x_dim                      = 10;
+    config.y_dim                      = 10;
+    config.dimention                  = 3;
+    config.grid_type                  = "RECTANGULAR";
+    config.iteration_limit            = 100;
+    config.starting_learning_rate     = 0.5;
+    config.node_initialization_method = "RANDOM";
+    config.learning_rate_function     = "CONSTANT_LEARNING_RATE";
+    config.neighbourhood_function     = "BUBBLE_NEIGHBOURHOOD";
+    config.min_node_weight            = DEFAULT_MIN_WEIGHT;
+    config.max_node_weight            = DEFAULT_MAX_WEIGHT;
 
-    // Load dataset
+
+    // Create trainer
+    Trainer trainer(config);
+    cout << trainer.grid->ToString() << endl;
+
+    // Load dataset from file
     vector<vector<float>> input_space = load_csv(INPUT_PATH);
 
-    // Create new grids
-    Grid* grid = new Rectangular(x_dim, y_dim, dimention);
-    grid->InitializeNodes();
+    // Train
+    trainer.Train(input_space);
+    cout << trainer.grid->ToString();
 
-    // Initialize random weights
-    initialize_random_weights(grid);
-
-    // New trainer session
-    Trainer trainer(grid, input_space, iteration_limit, learning_rate);
-
-    cout << grid->ToString();
-
-    trainer.Train();
-
-    cout << grid->ToString();
 
     std::cout << "Program is running..." << std::endl;
     return 0;

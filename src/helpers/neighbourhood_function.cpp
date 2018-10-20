@@ -14,3 +14,4 @@ float bubble_neighbourhood(Node bmu, int node_index, int iteration){
         return 1;
     }
 }
+

@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "grid.h"
+#include "../struct/config.h"
 
 #ifndef SOM_TRAINER_H
 #define SOM_TRAINER_H
@@ -18,25 +19,16 @@ class Trainer {
 public:
     vector<vector<float>> input_space;
     Grid* grid;
-    int iteration_limit;
-    float starting_learning_rate;
-
     int current_iteration;
     int selected_input_vector_index;
+    Config config;
+
 
     /**
-     * Constructor
-     * @param input_space Input space
-     * @param grid Grid
-     * @param iterations No of iterations
-     * @param starting_learning_rate Starting learning rate (alpha)
-     * @param initial_radius Initial radius
+     * Consturctor
+     * @param config Configurations
      */
-    Trainer(Grid* grid,
-            vector<vector<float>> &input_space,
-            int iteration_limit,
-            float starting_learning_rate);
-
+    Trainer(Config config);
 
     /**
      * Get the next input vector
@@ -47,8 +39,9 @@ public:
 
     /**
      * Start training
+     * @param input_space Input space for the train
      */
-    void Train();
+    void Train(vector<vector<float>> &input_space);
 };
 
 #endif //SOM_TRAINER_H
