@@ -23,10 +23,6 @@ Grid::Grid(int x_dim, int y_dim, int dimention, bool random_initialization){
     this->dimention = dimention;
 
     this->nodes.resize((u_long)x_dim * y_dim);
-
-    if (random_initialization){
-//        this->InitializeNodes();
-    }
 }
 
 
