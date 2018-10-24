@@ -5,7 +5,7 @@
 #ifndef SOM_TRAINER_HELPER_H
 #define SOM_TRAINER_HELPER_H
 
-#include "../config.h"
+#include "../init.h"
 
 #include "../core/grid.h"
 

@@ -19,7 +19,7 @@ Trainer::Trainer(Config config){
 
     // Greate grid
     if (config.grid_type == "RECTANGULAR"){
-        this->grid = new Rectangular(config.x_dim, config.y_dim, config.dimention);
+        this->grid = new Rectangular(config.x_dim, config.y_dim, config.dimension);
     }
     this->grid->InitializeNodes(); // TODO: Initialization method
     initialize_random_weights(this->grid, config.min_node_weight, config.max_node_weight);
