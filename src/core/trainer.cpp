@@ -56,7 +56,11 @@ void Trainer::Train(vector<vector<float>> &input_space){
         Node bmu = this->grid->nodes[bmu_index];
 
         // Calculate learning rate
-        float learning_rate = constant_learning_rate(this->config.starting_learning_rate);
+        float learning_rate = LearningRate::Calculate(
+                this->config.learning_rate_type,
+                this->config.starting_learning_rate,
+                this->current_iteration,
+                this->config.iteration_limit);
 
         // For each node
         for (int n = 0; n < this->grid->nodes.size(); ++n) {

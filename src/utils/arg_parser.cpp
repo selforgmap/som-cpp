@@ -8,6 +8,8 @@
 #include <string>
 #include <stdlib.h>
 
+#include "../helpers/learning_rate.h"
+
 using namespace std;
 
 Config argsToConfig(int argc, char** argv){
@@ -39,9 +41,9 @@ Config argsToConfig(int argc, char** argv){
             } else if (opt == "-m" || opt == "-node-init-method"){
                 // Node initialization method
                 config.node_initialization_method = argv[++i];
-            } else if (opt == "-lf" || opt == "-learning-rate-function"){
-                // Learning rate function
-                config.learning_rate_function = argv[++i];
+            } else if (opt == "-lf" || opt == "-learning-rate-type"){
+                // Learning rate type
+                config.learning_rate_type = (LearningRate::type_map[argv[++i]]);
             } else if (opt == "-nf" || opt == "-neighbourhood-function"){
                 // Neighbourhood function
                 config.neighbourhood_function = argv[++i];
