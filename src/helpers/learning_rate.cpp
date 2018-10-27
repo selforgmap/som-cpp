@@ -7,9 +7,7 @@
 #include <iostream>
 #include <cmath>
 
-
 using namespace std;
-
 
 std::map<std::string, LearningRate::type> LearningRate::type_map = {
         { "CONSTANT",        LR_CONSTANT },
@@ -18,19 +16,17 @@ std::map<std::string, LearningRate::type> LearningRate::type_map = {
         { "POWER_SERIES",    LR_POWER_SERIES }
 };
 
-
 float LearningRate::Calculate(LearningRate::type type, float starting_learning_rate, int iteration, int iteration_limit) {
     switch (type){
-        case LearningRate::LR_CONSTANT:
+        case LR_CONSTANT:
             return LearningRate::ConstantLearningRate(starting_learning_rate);
-        case LearningRate::LR_LINEAR:
+        case LR_LINEAR:
             return LearningRate::LinearLearningRate(starting_learning_rate, iteration);
-        case LearningRate::LR_INVERSE_OF_TIME:
+        case LR_INVERSE_OF_TIME:
             return LearningRate::InverseOfTimeLearningRate(starting_learning_rate, iteration, iteration_limit);
-        case LearningRate::LR_POWER_SERIES:
+        case LR_POWER_SERIES:
             return LearningRate::PowerSeriesLearningRate(starting_learning_rate, iteration, iteration_limit);
     }
-
 }
 
 float LearningRate::ConstantLearningRate(float starting_learning_rate) {

@@ -21,7 +21,7 @@ struct Config {
     float starting_learning_rate;
     string node_initialization_method;
     LearningRate::type learning_rate_type;
-    string neighbourhood_function;
+    Neighborhood::type neighborhood_type;
     float min_node_weight;
     float max_node_weight;
     string input_file_path;
@@ -36,7 +36,7 @@ struct Config {
         starting_learning_rate     = DEFAULT_STARTING_LEARNING_RATE;
         node_initialization_method = DEFAULT_NODE_INITIALIZATION_METHOD;
         learning_rate_type         = DEFAULT_LEARNING_RATE_TYPE;
-        neighbourhood_function     = DEFAULT_NEIGHBOURHOOD_FUNCTION;
+        neighborhood_type          = DEFAULT_NEIGHBORHOOD_TYPE;
         min_node_weight            = DEFAULT_MIN_NODE_WEIGHT;
         max_node_weight            = DEFAULT_MAX_NODE_WEIGHT;
         input_file_path            = DEFAULT_INPUT_FILE_PATH;

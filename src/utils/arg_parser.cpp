@@ -44,9 +44,9 @@ Config argsToConfig(int argc, char** argv){
             } else if (opt == "-lf" || opt == "-learning-rate-type"){
                 // Learning rate type
                 config.learning_rate_type = (LearningRate::type_map[argv[++i]]);
-            } else if (opt == "-nf" || opt == "-neighbourhood-function"){
-                // Neighbourhood function
-                config.neighbourhood_function = argv[++i];
+            } else if (opt == "-nf" || opt == "-neighborhood-type"){
+                // Neighborhood function
+                config.neighborhood_type = Neighborhood::type_map[argv[++i]];
             } else if (opt == "-min" || opt == "-min-node-weight"){
                 // Minimum node weight (For random initialization)
                 config.min_node_weight = (float)atof(argv[++i]);

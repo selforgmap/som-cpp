@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <zconf.h>
 
-#include "../helpers/neighbourhood_function.h"
+#include "../helpers/neighborhood.h"
 #include "../helpers/learning_rate.h"
 #include "../grids/rectangular.h"
 #include "../helpers/trainer_helper.h"
@@ -66,16 +66,13 @@ void Trainer::Train(vector<vector<float>> &input_space){
         for (int n = 0; n < this->grid->nodes.size(); ++n) {
             Node &node = this->grid->nodes[n];
 
-            // Calculate neighbourhood value
-            float neighbourhood_value;
-            if (this->config.neighbourhood_function == "BUBBLE_NEIGHBOURHOOD"){
-                neighbourhood_value = bubble_neighbourhood(bmu, n, i);
-            }
+            // Calculate neighborhood value
+            float neighborhood_value = Neighborhood::Calculate(this->config.neighborhood_type, bmu, n, i);
 
             // Adapt the neurone
             for (int d = 0; d < this->grid->dimention; ++d) {
                 node.weight_vector[d] +=
-                        learning_rate * neighbourhood_value * (input_vector[d] - node.weight_vector[d]);
+                        learning_rate * neighborhood_value * (input_vector[d] - node.weight_vector[d]);
             }
 
         }

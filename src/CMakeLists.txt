@@ -18,8 +18,8 @@ file(GLOB SRC_FILES
         struct/node.h
         helpers/trainer_helper.cpp
         helpers/trainer_helper.h
-        helpers/neighbourhood_function.cpp
-        helpers/neighbourhood_function.h
+        helpers/neighborhood.cpp
+        helpers/neighborhood.h
         helpers/learning_rate.cpp
         helpers/learning_rate.h
         struct/config.h

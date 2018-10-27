@@ -3,6 +3,7 @@
 //
 #include<string>
 #include "helpers/learning_rate.h"
+#include "helpers/neighborhood.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ const int    DEFAULT_ITERATION_LIMIT            = 100;
 const float  DEFAULT_STARTING_LEARNING_RATE     = 0.4;
 const string DEFAULT_NODE_INITIALIZATION_METHOD = "RANDOM";
 const LearningRate::type DEFAULT_LEARNING_RATE_TYPE = LearningRate::type::LR_CONSTANT;
-const string DEFAULT_NEIGHBOURHOOD_FUNCTION     = "BUBBLE_NEIGHBOURHOOD";
+const Neighborhood::type DEFAULT_NEIGHBORHOOD_TYPE  = Neighborhood::type::NF_BUBBLE;
 const int    DEFAULT_MIN_NODE_WEIGHT            = 1;
 const int    DEFAULT_MAX_NODE_WEIGHT            = 99;
 const string DEFAULT_INPUT_FILE_PATH            = "../../resources/input.csv";
