@@ -10,11 +10,11 @@
 
 using namespace std;
 
-vector<vector<float>> load_csv(string filename){
+vector<vector<float> > load_csv(string filename){
     // Load file
     ifstream data(filename);
     string line;
-    vector<vector<float>> dataset;
+    vector<vector<float> > dataset;
 
     // Read lines
     while(std::getline(data,line))

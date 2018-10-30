@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_CXX_STANDARD 14)
 
 FIND_PACKAGE(PythonInterp)
 
@@ -35,7 +37,7 @@ message(STATUS "Boost_LIBRARIES = ${Boost_LIBRARIES}")
 
 ENABLE_TESTING()
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
-LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES}) # Deprecated but so convenient!
+LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${CMAKE_CURRENT_SOURCE_DIR}/../cmake-build-debug/lib/libsom.a) # Deprecated but so convenient!
 
 PYTHON_ADD_MODULE(api main/api.cpp)
 FILE(COPY api.py DESTINATION .)

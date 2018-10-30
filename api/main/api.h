@@ -5,6 +5,8 @@
 #ifndef SOM_API_H
 #define SOM_API_H
 
-char const* run();
+#include <string>
+
+std::string start_training();
 
 #endif //SOM_API_H

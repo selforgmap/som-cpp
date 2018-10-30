@@ -17,7 +17,7 @@ using namespace std;
  */
 class Trainer {
 public:
-    vector<vector<float>> input_space;
+    vector<vector<float> > input_space;
     Grid* grid;
     int current_iteration;
     int selected_input_vector_index;
@@ -41,7 +41,7 @@ public:
      * Start training
      * @param input_space Input space for the train
      */
-    void Train(vector<vector<float>> &input_space);
+    void Train(vector<vector<float> > &input_space);
 };
 
 #endif //SOM_TRAINER_H

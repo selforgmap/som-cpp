@@ -2,5 +2,9 @@
 
 import api
 
-print (api.run())
+
+# print (api.startTraining())
+
+x = api.startTraining()
+print (x)
 
