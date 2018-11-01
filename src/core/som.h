@@ -13,9 +13,9 @@
 using namespace std;
 
 /**
- * Trainer class
+ * SOM class
  */
-class Trainer {
+class SOM {
 public:
     vector<vector<float> > input_space;
     Grid* grid;
@@ -23,12 +23,13 @@ public:
     int selected_input_vector_index;
     Config config;
 
+    SOM();
 
     /**
      * Consturctor
      * @param config Configurations
      */
-    Trainer(Config config);
+    SOM(Config config);
 
     /**
      * Get the next input vector

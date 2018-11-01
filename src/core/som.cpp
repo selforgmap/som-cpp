@@ -2,7 +2,7 @@
 // Created by Sumedhe Dissanayake on 10/4/18.
 //
 
-#include "trainer.h"
+#include "som.h"
 
 #include <iostream>
 #include <stdlib.h>
@@ -13,8 +13,11 @@
 #include "../grids/rectangular.h"
 #include "../helpers/trainer_helper.h"
 
+SOM::SOM(){
 
-Trainer::Trainer(Config config){
+}
+
+SOM::SOM(Config config){
     this->config = config;
 
     // Greate grid
@@ -30,7 +33,7 @@ Trainer::Trainer(Config config){
 }
 
 
-vector<float> Trainer::GetNextInputVector(bool is_random) {
+vector<float> SOM::GetNextInputVector(bool is_random) {
     // Select next input vector index
     if (is_random){
         this->selected_input_vector_index = (int)(rand() % this->input_space.size());
@@ -42,7 +45,7 @@ vector<float> Trainer::GetNextInputVector(bool is_random) {
 }
 
 
-void Trainer::Train(vector<vector<float>> &input_space){
+void SOM::Train(vector<vector<float>> &input_space){
     this->input_space = input_space;
 
     // For each iteration

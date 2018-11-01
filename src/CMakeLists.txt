@@ -7,8 +7,8 @@ file(GLOB SRC_FILES
         main.cpp
         main.h
         init.h
-        core/trainer.cpp
-        core/trainer.h
+        core/som.cpp
+        core/som.h
         utils/csv_loader.cpp
         utils/csv_loader.h
         grids/rectangular.cpp

@@ -8,7 +8,7 @@
 #include "utils/arg_parser.h"
 
 #include "utils/csv_loader.h"
-#include "core/trainer.h"
+#include "core/som.h"
 #include "grids/rectangular.h"
 
 #include "helpers/trainer_helper.h"
@@ -21,16 +21,16 @@ int main(int argc, char** argv) {
     // Configurations
     Config config = argsToConfig(argc, argv);
 
-    // Create trainer
-    Trainer trainer(config);
-    cout << trainer.grid->ToString() << endl;
+    // Create som
+    SOM som(config);
+    cout << som.grid->ToString() << endl;
 
     // Load dataset from file
     vector<vector<float>> input_space = load_csv(config.input_file_path);
 
     // Train
-    trainer.Train(input_space);
-    cout << trainer.grid->ToString();
+    som.Train(input_space);
+    cout << som.grid->ToString();
 
     return 0;
 }

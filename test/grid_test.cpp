@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include "core/grid.h"
 #include "grids/rectangular.h"
-#include "core/trainer.h"
+#include "core/som.h"
 #include "struct/node.h"
 
 
