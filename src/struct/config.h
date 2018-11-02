@@ -22,8 +22,8 @@ struct Config {
     string node_initialization_method;
     LearningRate::type learning_rate_type;
     Neighborhood::type neighborhood_type;
-    float min_node_weight;
-    float max_node_weight;
+    double min_node_weight;
+    double max_node_weight;
     string input_file_path;
 
     // Constructor: Default values

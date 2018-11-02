@@ -50,9 +50,9 @@ string Session::Train(){
     cout << som.grid->ToString() << endl;
 
     // Load dataset from file
-    vector<vector<float> > input_space;
-    vector<float> data1 = {1,1,1};
-    vector<float> data2 = {99,99,99};
+    vector<vector<double> > input_space;
+    vector<double> data1 = {1,1,1};
+    vector<double> data2 = {99,99,99};
     input_space.push_back(data1);
     input_space.push_back(data2);
 

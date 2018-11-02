@@ -33,7 +33,7 @@ SOM::SOM(Config config){
 }
 
 
-vector<float> SOM::GetNextInputVector(bool is_random) {
+vector<double> SOM::GetNextInputVector(bool is_random) {
     // Select next input vector index
     if (is_random){
         this->selected_input_vector_index = (int)(rand() % this->input_space.size());
@@ -45,14 +45,14 @@ vector<float> SOM::GetNextInputVector(bool is_random) {
 }
 
 
-void SOM::Train(vector<vector<float>> &input_space){
+void SOM::Train(vector<vector<double>> &input_space){
     this->input_space = input_space;
 
     // For each iteration
     for (int i = 1; i <= this->config.iteration_limit; ++i){
 
         // Get next input vector
-        vector<float> input_vector = this->GetNextInputVector();
+        vector<double> input_vector = this->GetNextInputVector();
 
         // Find the best matching unit
         int bmu_index = this->grid->FindBMU(input_vector);

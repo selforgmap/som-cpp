@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     cout << som.grid->ToString() << endl;
 
     // Load dataset from file
-    vector<vector<float>> input_space = load_csv(config.input_file_path);
+    vector<vector<double> > input_space = load_csv(config.input_file_path);
 
     // Train
     som.Train(input_space);

@@ -54,7 +54,7 @@ float Grid::CalculateDistance(Node node1, Node node2) {
     return euclidean_distance(node1.x_pos, node1.y_pos, node2.x_pos, node2.y_pos);
 }
 
-int Grid::FindBMU(vector<float> input_vector) {
+int Grid::FindBMU(vector<double> input_vector) {
     float min_dist = std::numeric_limits<float>::max();
     int bmu = -1;
     for (int i = 0; i < this->Size(); ++i) {

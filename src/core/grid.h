@@ -39,7 +39,7 @@ public:
      * @param input_vector Input vector to find BMU
      * @return Index of the neurone
      */
-    int FindBMU(vector<float> input_vector);
+    int FindBMU(vector<double> input_vector);
 
     /**
      * Calculate the distance between two nodes

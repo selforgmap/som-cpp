@@ -14,6 +14,6 @@
  * @param filename Filename/Path of the CSV file
  * @return Vector of the dataset
  */
-std::vector<std::vector<float> > load_csv(std::string filename);
+std::vector<std::vector<double> > load_csv(std::string filename);
 
 #endif //SOM_CSV_PARSER_H

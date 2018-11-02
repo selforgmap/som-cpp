@@ -13,7 +13,7 @@ using namespace std;
  * Node structure
  */
 struct Node {
-    vector<float> weight_vector;
+    vector<double> weight_vector;
     float x_pos;
     float y_pos;
     vector<float> distance_to;

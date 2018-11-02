@@ -10,18 +10,18 @@
 
 using namespace std;
 
-vector<vector<float> > load_csv(string filename){
+vector<vector<double> > load_csv(string filename){
     // Load file
     ifstream data(filename);
     string line;
-    vector<vector<float> > dataset;
+    vector<vector<double> > dataset;
 
     // Read lines
     while(std::getline(data,line))
     {
         stringstream line_stream(line);
         string cell;
-        vector<float> parsed_row;
+        vector<double> parsed_row;
         while(getline(line_stream, cell, ','))
         {
             parsed_row.push_back(stof(cell));

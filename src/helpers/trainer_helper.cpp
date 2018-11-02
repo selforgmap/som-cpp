@@ -17,7 +17,7 @@ void initialize_random_weights(Grid* grid, int min, int max){
     srand((uint)time(0));
 
     for (int i = 0; i < grid->Size(); ++i){
-        std::vector<float> neu = vector<float>((u_long)grid->dimention);
+        std::vector<double> neu = vector<double>((u_long)grid->dimention);
         for (int j = 0; j < grid->dimention; ++j){
             neu[j] = (rand() % ((max - min) + 1) + min);
         }
@@ -26,7 +26,7 @@ void initialize_random_weights(Grid* grid, int min, int max){
 
 }
 
-float squared_euclidean_distance(vector<float> input_vector, vector<float> weight_vector){
+float squared_euclidean_distance(vector<double> input_vector, vector<double> weight_vector){
     float dist = 0;
     for (int i = 0; i < weight_vector.size(); ++i) {
         dist += pow((input_vector[i] - weight_vector[i]), 2);
