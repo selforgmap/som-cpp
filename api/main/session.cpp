@@ -43,23 +43,34 @@ BOOST_PYTHON_MODULE(api)
 }
 
 
-string Session::Train(){
+string Session::Train(boost::python::list& data){
 
-    // Create trainer
+    // Create som trainer
     SOM som(this->config);
     cout << som.grid->ToString() << endl;
 
-    // Load dataset from file
-    vector<vector<double> > input_space;
-    vector<double> data1 = {1,1,1};
-    vector<double> data2 = {99,99,99};
-    input_space.push_back(data1);
-    input_space.push_back(data2);
+    // Load dataset
+    vector<vector<double> > input_space = this->ParseInputSpace(data);
 
     // Train
     som.Train(input_space);
     return som.grid->ToString();
 
+}
+
+
+vector<vector<double> > Session::ParseInputSpace(boost::python::list& data){
+    vector<vector<double> > dataset;
+
+    for (int i = 0; i < len(data); ++i) {
+        vector<double> item;
+        for (int j = 0; j < len(data[i]); j++){
+            item.push_back(boost::python::extract<double>(data[i][j]));
+        }
+        dataset.push_back(item);
+    }
+
+    return dataset;
 }
 
 

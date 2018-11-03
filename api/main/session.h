@@ -6,6 +6,9 @@
 #define SOM_API_H
 
 #include <string>
+#include <boost/python.hpp>
+#include <boost/python/list.hpp>
+#include <vector>
 #include "../../src/core/som.h"
 #include "../../src/struct/config.h"
 
@@ -18,7 +21,7 @@ public:
 
     }
 
-    string Train();
+    string Train(boost::python::list& data);
 
     void SetXDim(int value);
 
@@ -41,6 +44,10 @@ public:
     void SetMinNodeWeight(float value);
 
     void SetMaxNodeWeight(float value);
+
+private:
+    vector<vector<double> > ParseInputSpace(boost::python::list& data);
+
 
 };
 
