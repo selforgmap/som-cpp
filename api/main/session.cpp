@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 
+#include "session_helper.h"
 #include "../../src/core/som.h"
 #include "../../src/struct/config.h"
 #include "../../src/helpers/learning_rate.h"
@@ -50,7 +51,7 @@ string Session::Train(boost::python::list& data){
     cout << som.grid->ToString() << endl;
 
     // Load dataset
-    vector<vector<double> > input_space = this->ParseInputSpace(data);
+    vector<vector<double> > input_space = list_matrix_to_double_matrix(data);
 
     // Train
     som.Train(input_space);
@@ -58,20 +59,6 @@ string Session::Train(boost::python::list& data){
 
 }
 
-
-vector<vector<double> > Session::ParseInputSpace(boost::python::list& data){
-    vector<vector<double> > dataset;
-
-    for (int i = 0; i < len(data); ++i) {
-        vector<double> item;
-        for (int j = 0; j < len(data[i]); j++){
-            item.push_back(boost::python::extract<double>(data[i][j]));
-        }
-        dataset.push_back(item);
-    }
-
-    return dataset;
-}
 
 
 void Session::SetXDim(int value){

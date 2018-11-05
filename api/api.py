@@ -2,8 +2,10 @@
 
 import api
 
+# Create a session of SOM
 session = api.Session()
 
+# Set configurations
 session.SetXDim(5)
 session.SetYDim(5)
 session.SetDimension(3)
@@ -16,6 +18,7 @@ session.SetNeighborhoodType("BUBBLE")
 session.SetMinNodeWeight(1)
 session.SetMaxNodeWeight(100)
 
+# Start training
 data = [[1,1,1],[99,99,99]]
 result = session.Train(data);
 

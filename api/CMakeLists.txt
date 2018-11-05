@@ -39,7 +39,7 @@ ENABLE_TESTING()
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
 LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${CMAKE_CURRENT_SOURCE_DIR}/../cmake-build-debug/lib/libsom.a) # Deprecated but so convenient!
 
-PYTHON_ADD_MODULE(api main/session.cpp)
+PYTHON_ADD_MODULE(api main/session.cpp main/session_helper.cpp)
 FILE(COPY api.py DESTINATION .)
 ADD_TEST(NAME api COMMAND ${PYTHON_EXECUTABLE} api.py)
 
