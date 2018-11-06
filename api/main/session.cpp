@@ -24,12 +24,13 @@
 using namespace std;
 
 // Python module definitons
-BOOST_PYTHON_MODULE(api)
+BOOST_PYTHON_MODULE(som)
 {
     using namespace boost::python;
 
     class_<Session>("Session")
             .def("Train",                       &Session::Train)
+            .def("GetResult",                   &Session::GetResult)
             .def("SetXDim",                     &Session::SetXDim)
             .def("SetYDim",                     &Session::SetYDim)
             .def("SetDimension",                &Session::SetDimension)
@@ -44,7 +45,7 @@ BOOST_PYTHON_MODULE(api)
 }
 
 
-string Session::Train(boost::python::list& data){
+void Session::Train(boost::python::list& data){
 
     // Create som trainer
     SOM som(this->config);
@@ -55,10 +56,14 @@ string Session::Train(boost::python::list& data){
 
     // Train
     som.Train(input_space);
-    return som.grid->ToString();
-
+    this->result = som.grid->GetWeightMatrix();
+//    return double_matrix_to_list_matrix(som.grid->GetWeightMatrix());
 }
 
+
+boost::python::list Session::GetResult(){
+    return double_matrix_to_list_matrix(this->result);
+}
 
 
 void Session::SetXDim(int value){

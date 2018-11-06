@@ -23,6 +23,6 @@ vector<vector<double> > list_matrix_to_double_matrix(boost::python::list &data);
  * @param data Double matrix
  * @return Python list matrix
  */
-boost::python::list double_matrix_to_list_matrix(<vector<vector<double> > &data);
+boost::python::list double_matrix_to_list_matrix(vector<vector<double> > data);
 
 #endif //SOM_SESSION_HELPER_H

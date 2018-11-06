@@ -18,6 +18,7 @@
 class Session {
 public:
     Config config;
+    vector<vector<double> > result;
 
     /**
      * Constructor
@@ -31,7 +32,13 @@ public:
      * @param data Python list matrix of dataset
      * @return Result / Weight vector
      */
-    string Train(boost::python::list& data);
+    void Train(boost::python::list& data);
+
+    /**
+     * Get training result
+     * @return Python list matrix of result
+     */
+    boost::python::list GetResult();
 
     /**
      * Set X dimension
@@ -74,7 +81,7 @@ public:
      * Set node initialization method
      * @param value Name of the method
      */
-    void SetNodeInitializatioMethod(string value);
+    void SetNodeInitializationMethod(string value);
 
     /**
      * Set the learning rate type

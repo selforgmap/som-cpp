@@ -8,6 +8,8 @@
 #include <sstream>
 #include <iterator>
 #include <algorithm>
+#include <cstdlib>
+#include <cmath>
 
 
 #include "../helpers/trainer_helper.h"
@@ -69,6 +71,18 @@ int Grid::FindBMU(vector<double> input_vector) {
 
 Node Grid::GetNode(int node_index){
     return this->nodes[node_index];
+}
+
+vector<vector<double> > Grid::GetWeightMatrix(){
+    vector<vector<double> > matrix(this->Size());
+    for (int i = 0; i < this->Size(); ++i){
+        std::vector<double> item = vector<double>((u_long)this->dimention);
+        for (int j = 0; j < this->dimention; ++j){
+            item[j] = this->nodes[i].weight_vector[j];
+        }
+        matrix[i] = item;
+    }
+    return matrix;
 }
 
 string Grid::ToString() {

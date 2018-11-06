@@ -2,6 +2,14 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+include(../cmake/googletest.cmake)
+fetch_googletest(
+        ${PROJECT_SOURCE_DIR}/cmake
+        ${PROJECT_BINARY_DIR}/googletest
+)
+
+enable_testing()
+
 add_executable(
         unit_tests
         main_test.cpp
@@ -16,7 +24,7 @@ target_link_libraries(
 
 add_test(
         NAME
-            unit
+        unit
         COMMAND
-            ${CMAKE_BINARY_DIR}/bin/unit_tests
-        )
+        ${CMAKE_BINARY_DIR}/bin/unit_tests
+)

@@ -75,7 +75,7 @@ public:
      */
     virtual pair<float, float> CalculateLocation(int node_index) = 0;
 
-
+    vector<vector<double> > GetWeightMatrix();
 };
 
 
