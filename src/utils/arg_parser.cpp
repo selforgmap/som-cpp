@@ -9,12 +9,12 @@
 #include <stdlib.h>
 
 #include "../helpers/learning_rate.h"
+#include "../helpers/neighborhood.h"
+#include "../core/som.h"
 
 using namespace std;
 
-Config argsToConfig(int argc, char** argv){
-    Config config;
-
+void parse_config_from_args(SOM som, int argc, char** argv){
     try{
         // For each argument
         for (int i = 1; i < argc; ++i){
@@ -22,40 +22,37 @@ Config argsToConfig(int argc, char** argv){
 
             if (opt == "-x" || opt == "-xdim") {
                 // X dimension size
-                config.x_dim = atoi(argv[++i]);
+                som.x_dim = atoi(argv[++i]);
             } else if (opt == "-y" || opt == "-ydim") {
                 // Y dimension size
-                config.y_dim = atoi(argv[++i]);
+                som.y_dim = atoi(argv[++i]);
             } else if (opt == "-d" || opt == "-dimension") {
                 // Dimension
-                config.dimension = atoi(argv[++i]);
+                som.dimension = atoi(argv[++i]);
             } else if (opt == "-g" || opt == "-grid-type") {
                 // Grid Type
-                config.grid_type = argv[++i];
+                som.grid_type = argv[++i];
             } else if (opt == "-t" || opt == "-iteration-limit"){
                 // Iteration limit
-                config.iteration_limit = atoi(argv[++i]);
+                som.iteration_limit = atoi(argv[++i]);
             } else if (opt == "-lr" || opt == "-starting-learning-rate"){
                 // Starting learning rate
-                config.starting_learning_rate = (float)atof(argv[++i]);
+                som.starting_learning_rate = (float)atof(argv[++i]);
             } else if (opt == "-m" || opt == "-node-init-method"){
                 // Node initialization method
-                config.node_initialization_method = argv[++i];
+                som.node_initialization_method = argv[++i];
             } else if (opt == "-lf" || opt == "-learning-rate-type"){
                 // Learning rate type
-                config.learning_rate_type = (LearningRate::type_map[argv[++i]]);
+                som.learning_rate_type = (LearningRate::type_map[argv[++i]]);
             } else if (opt == "-nf" || opt == "-neighborhood-type"){
                 // Neighborhood function
-                config.neighborhood_type = Neighborhood::type_map[argv[++i]];
+                som.neighborhood_type = Neighborhood::type_map[argv[++i]];
             } else if (opt == "-min" || opt == "-min-node-weight"){
                 // Minimum node weight (For random initialization)
-                config.min_node_weight = (float)atof(argv[++i]);
+                som.min_node_weight = (float)atof(argv[++i]);
             } else if (opt == "-max" || opt == "-max-node-weight"){
                 // Maximum node weight (For random initialization)
-                config.max_node_weight = (float)atof(argv[++i]);
-            } else if (opt == "-i" || opt == "-input"){
-                // Input file path (.csv file)
-                config.input_file_path = argv[++i];
+                som.max_node_weight = (float)atof(argv[++i]);
             }
 
         }
@@ -63,5 +60,4 @@ Config argsToConfig(int argc, char** argv){
         cout << "Error in parsing args!" << endl;
     }
 
-    return config;
 }

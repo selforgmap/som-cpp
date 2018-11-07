@@ -16,10 +16,8 @@
 
 #include "session_helper.h"
 #include "../../src/core/som.h"
-#include "../../src/struct/config.h"
 #include "../../src/helpers/learning_rate.h"
 #include "../../src/utils/csv_loader.h"
-#include "../../src/init.h"
 
 using namespace std;
 
@@ -44,70 +42,71 @@ BOOST_PYTHON_MODULE(som)
             .def("SetMaxNodeWeight",            &Session::SetMaxNodeWeight);
 }
 
+Session::Session() : som() {
+
+}
 
 void Session::Train(boost::python::list& data){
 
     // Create som trainer
-    SOM som(this->config);
-    cout << som.grid->ToString() << endl;
+    cout << this->som.grid->ToString() << endl;
 
     // Load dataset
-    vector<vector<double> > input_space = list_matrix_to_double_matrix(data);
+    vector<vector<double> > dataset = list_matrix_to_double_matrix(data);
 
     // Train
-    som.Train(input_space);
-    this->result = som.grid->GetWeightMatrix();
-//    return double_matrix_to_list_matrix(som.grid->GetWeightMatrix());
+    som.Train(dataset);
+
 }
 
 
 boost::python::list Session::GetResult(){
-    return double_matrix_to_list_matrix(this->result);
+    return double_matrix_to_list_matrix(this->som.grid->GetWeightMatrix());
 }
 
 
 void Session::SetXDim(int value){
-    this->config.x_dim = value;
+    this->som.x_dim = value;
 }
 
 void Session::SetYDim(int value){
-    this->config.y_dim = value;
+    this->som.y_dim = value;
 }
 
 void Session::SetDimension(int value){
-    this->config.dimension = value;
+    this->som.dimension = value;
 }
 
 void Session::SetGridType(string value){
-    this->config.grid_type = value;
+    this->som.grid_type = value;
 }
 
 void Session::SetIterationLimit(int value){
-    this->config.iteration_limit = value;
+    this->som.iteration_limit = value;
 }
 
 void Session::SetStartingLearningRate(float value){
-    this->config.starting_learning_rate = value;
+    this->som.starting_learning_rate = value;
 }
 
 void Session::SetNodeInitializationMethod(string value){
-    this->config.node_initialization_method = value;
+    this->som.node_initialization_method = value;
 }
 
 void Session::SetLearningRateType(string value){
-    this->config.learning_rate_type = LearningRate::type_map[value];
+    this->som.learning_rate_type = LearningRate::type_map[value];
 }
 
 void Session::SetNeighborhoodType(string value){
-    this->config.neighborhood_type = Neighborhood::type_map[value];
+    this->som.neighborhood_type = Neighborhood::type_map[value];
 }
 
 void Session::SetMinNodeWeight(float value){
-    this->config.min_node_weight = value;
+    this->som.min_node_weight = value;
 }
 
 void Session::SetMaxNodeWeight(float value){
-    this->config.max_node_weight = value;
+    this->som.max_node_weight = value;
 }
 
 

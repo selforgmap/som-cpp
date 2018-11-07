@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "init.h"
-#include "struct/config.h"
 #include "utils/arg_parser.h"
 
 #include "utils/csv_loader.h"
@@ -18,15 +17,16 @@ using namespace std;
 
 int main(int argc, char** argv) {
 
-    // Configurations
-    Config config = argsToConfig(argc, argv);
-
     // Create som
-    SOM som(config);
+    SOM som;
+
+    // Configurations
+    parse_config_from_args(som, argc, argv);
+
     cout << som.grid->ToString() << endl;
 
     // Load dataset from file
-    vector<vector<double> > input_space = load_csv(config.input_file_path);
+    vector<vector<double> > input_space = load_csv(DEFAULT_INPUT_FILE_PATH);
 
     // Train
     som.Train(input_space);

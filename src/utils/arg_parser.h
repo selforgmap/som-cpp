@@ -5,7 +5,8 @@
 #ifndef SOM_ARG_PARSER_H
 #define SOM_ARG_PARSER_H
 
-#include "../struct/config.h"
+
+#include "../core/som.h"
 
 /**
  * Convert arguments to config
@@ -13,7 +14,7 @@
  * @param args Arguments
  * @return Config
  */
-Config argsToConfig(int argc, char** argv);
+void parse_config_from_args(SOM som, int argc, char** argv);
 
 
 #endif //SOM_ARG_PARSER_H

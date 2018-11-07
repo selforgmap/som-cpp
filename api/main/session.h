@@ -10,22 +10,19 @@
 #include <boost/python/list.hpp>
 #include <vector>
 #include "../../src/core/som.h"
-#include "../../src/struct/config.h"
 
 /**
  * Session class
  */
 class Session {
 public:
-    Config config;
+    SOM som;
     vector<vector<double> > result;
 
     /**
      * Constructor
      */
-    Session(){
-
-    }
+    Session();
 
     /**
      * Start training
