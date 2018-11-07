@@ -21,15 +21,15 @@ void initialize_random_weights(Grid* grid, int min, int max){
         for (int j = 0; j < grid->dimention; ++j){
             neu[j] = (rand() % ((max - min) + 1) + min);
         }
-        grid->nodes[i].weight_vector = neu;
+        grid->nodes[i].features = neu;
     }
 
 }
 
-float squared_euclidean_distance(vector<double> input_vector, vector<double> weight_vector){
+float squared_euclidean_distance(vector<double> input_features, vector<double> node_features){
     float dist = 0;
-    for (int i = 0; i < weight_vector.size(); ++i) {
-        dist += pow((input_vector[i] - weight_vector[i]), 2);
+    for (int i = 0; i < node_features.size(); ++i) {
+        dist += pow((input_features[i] - node_features[i]), 2);
     }
     return dist;
 }

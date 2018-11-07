@@ -8,6 +8,7 @@
 #include "grid.h"
 #include "../helpers/learning_rate.h"
 #include "../helpers/neighborhood.h"
+#include "../struct/dataitem.h"
 
 #ifndef SOM_TRAINER_H
 #define SOM_TRAINER_H
@@ -31,10 +32,10 @@ public:
     double min_node_weight;
     double max_node_weight;
 
-    vector<vector<double> > dataset;
     Grid* grid;
+    vector<DataItem> dataset;
     int current_iteration;
-    int selected_input_vector_index;
+    int selected_dataitem_index;
 
     /**
      * Consturctor
@@ -45,15 +46,15 @@ public:
     /**
      * Get the next input vector
      * @param is_random Random selection of the next input vector
-     * @return The next input vector
+     * @return The next data item
      */
-    vector<double> GetNextInputVector(bool is_random = false);
+    DataItem GetNextDataItem(bool is_random = false);
 
     /**
      * Start training
-     * @param input_space Input space for the train
+     * @param dataset Input dataset for the train
      */
-    void Train(vector<vector<double> > &input_space);
+    void Train(vector<DataItem> &dataset);
 
 };
 

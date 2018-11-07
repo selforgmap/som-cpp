@@ -37,33 +37,34 @@ SOM::SOM(){
 
     // Reset values
     this->current_iteration = 0;
-    this->selected_input_vector_index = -1;
+    this->selected_dataitem_index = -1;
 }
 
 
-vector<double> SOM::GetNextInputVector(bool is_random) {
+DataItem SOM::GetNextDataItem(bool is_random) {
     // Select next input vector index
     if (is_random){
-        this->selected_input_vector_index = (int)(rand() % this->dataset.size());
+        this->selected_dataitem_index = (int)(rand() % this->dataset.size());
     } else {
-        this->selected_input_vector_index = (int)((this->selected_input_vector_index + 1) % this->dataset.size());
+        this->selected_dataitem_index = (int)((this->selected_dataitem_index + 1) % this->dataset.size());
     }
 
-    return this->dataset[this->selected_input_vector_index];
+    return this->dataset[this->selected_dataitem_index];
 }
 
 
-void SOM::Train(vector<vector<double>> &input_space){
-    this->dataset = input_space;
+void SOM::Train(vector<DataItem> &dataset){
+    // Set input dataset
+    this->dataset = dataset;
 
     // For each iteration
     for (int i = 1; i <= this->iteration_limit; ++i){
 
         // Get next input vector
-        vector<double> input_vector = this->GetNextInputVector();
+        DataItem dataitem = this->GetNextDataItem();
 
         // Find the best matching unit
-        int bmu_index = this->grid->FindBMU(input_vector);
+        int bmu_index = this->grid->FindBMU(dataitem.features);
         Node bmu = this->grid->nodes[bmu_index];
 
         // Calculate learning rate
@@ -82,8 +83,8 @@ void SOM::Train(vector<vector<double>> &input_space){
 
             // Adapt the neurone
             for (int d = 0; d < this->grid->dimention; ++d) {
-                node.weight_vector[d] +=
-                        learning_rate * neighborhood_value * (input_vector[d] - node.weight_vector[d]);
+                node.features[d] +=
+                        learning_rate * neighborhood_value * (dataitem.features[d] - node.features[d]);
             }
 
         }

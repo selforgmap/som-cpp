@@ -26,10 +26,10 @@ int main(int argc, char** argv) {
     cout << som.grid->ToString() << endl;
 
     // Load dataset from file
-    vector<vector<double> > input_space = load_csv(DEFAULT_INPUT_FILE_PATH);
+    vector<DataItem> dataset = load_csv(DEFAULT_INPUT_FILE_PATH);
 
     // Train
-    som.Train(input_space);
+    som.Train(dataset);
     cout << som.grid->ToString();
 
     return 0;

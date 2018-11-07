@@ -28,10 +28,10 @@ TEST(FindBMU, Manual){
     Grid* grid = new Rectangular(2, 2, 3, false);
     grid->InitializeNodes();
 
-    grid->nodes[0].weight_vector = vector<double>{10, 20, 30};
-    grid->nodes[1].weight_vector = vector<double>{-10, 2, 7};
-    grid->nodes[2].weight_vector = vector<double>{1, 2, 5};
-    grid->nodes[3].weight_vector = vector<double>{-5, -4, -3};
+    grid->nodes[0].features = vector<double>{10, 20, 30};
+    grid->nodes[1].features = vector<double>{-10, 2, 7};
+    grid->nodes[2].features = vector<double>{1, 2, 5};
+    grid->nodes[3].features = vector<double>{-5, -4, -3};
 
     vector<double>vec = {3, 4, 5};
     int bmu = grid->FindBMU(vec);

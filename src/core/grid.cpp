@@ -60,7 +60,7 @@ int Grid::FindBMU(vector<double> input_vector) {
     float min_dist = std::numeric_limits<float>::max();
     int bmu = -1;
     for (int i = 0; i < this->Size(); ++i) {
-        float dist = squared_euclidean_distance(input_vector, this->nodes[i].weight_vector);
+        float dist = squared_euclidean_distance(input_vector, this->nodes[i].features);
         if (dist < min_dist){
             min_dist = dist;
             bmu = i;
@@ -78,7 +78,7 @@ vector<vector<double> > Grid::GetWeightMatrix(){
     for (int i = 0; i < this->Size(); ++i){
         std::vector<double> item = vector<double>((u_long)this->dimention);
         for (int j = 0; j < this->dimention; ++j){
-            item[j] = this->nodes[i].weight_vector[j];
+            item[j] = this->nodes[i].features[j];
         }
         matrix[i] = item;
     }
@@ -91,7 +91,7 @@ string Grid::ToString() {
     for (int i = 0; i < this->Size(); ++i){
         oss << "[";
         for (int j = 0; j < this->dimention; ++j){
-            oss << this->nodes[i].weight_vector[j];
+            oss << this->nodes[i].features[j];
             if (this->dimention != (j + 1)){
                 oss << ",";
             }

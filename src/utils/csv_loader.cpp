@@ -8,26 +8,27 @@
 #include <fstream>
 #include <sstream>
 
+#include "../struct/dataitem.h"
+
 using namespace std;
 
-vector<vector<double> > load_csv(string filename){
+vector<DataItem> load_csv(string filename){
     // Load file
     ifstream data(filename);
     string line;
-    vector<vector<double> > dataset;
+    vector<DataItem> dataset;
 
     // Read lines
-    while(std::getline(data,line))
-    {
+    while(std::getline(data,line)) {
         stringstream line_stream(line);
         string cell;
-        vector<double> parsed_row;
+        DataItem dataitem;
         while(getline(line_stream, cell, ','))
         {
-            parsed_row.push_back(stof(cell));
+            dataitem.features.push_back(stof(cell));
         }
 
-        dataset.push_back(parsed_row);
+        dataset.push_back(dataitem);
     }
 
     // Print error

@@ -23,11 +23,11 @@ void initialize_random_weights(
 
 /**
  * Calculate the euclidean distance between two vectors
- * @param input_vector Input vector
- * @param weight_vector Weight vector
+ * @param input_features Input vector
+ * @param node_features Weight vector
  * @return Squared euclidean distance
  */
-float squared_euclidean_distance(vector<double> input_vector, vector<double> weight_vector);
+float squared_euclidean_distance(vector<double> input_features, vector<double> node_features);
 
 /**
  * Get Euclidean distance of two points
