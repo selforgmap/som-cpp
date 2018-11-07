@@ -27,6 +27,10 @@ SOM::SOM(){
     this->neighborhood_type          = DEFAULT_NEIGHBORHOOD_TYPE;
     this->min_node_weight            = DEFAULT_MIN_NODE_WEIGHT;
     this->max_node_weight            = DEFAULT_MAX_NODE_WEIGHT;
+}
+
+
+void SOM::Initialize() {
 
     // Greate grid
     if (this->grid_type == "RECTANGULAR"){

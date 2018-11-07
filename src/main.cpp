@@ -23,12 +23,13 @@ int main(int argc, char** argv) {
     // Configurations
     parse_config_from_args(som, argc, argv);
 
-    cout << som.grid->ToString() << endl;
-
     // Load dataset from file
     vector<DataItem> dataset = load_csv(DEFAULT_INPUT_FILE_PATH);
 
     // Train
+    som.Initialize();
+    cout << som.grid->ToString() << endl;
+
     som.Train(dataset);
     cout << som.grid->ToString();
 

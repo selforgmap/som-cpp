@@ -6,6 +6,8 @@
 #include <boost/python/list.hpp>
 #include <vector>
 
+#include "../../src/struct/dataitem.h"
+
 #ifndef SOM_SESSION_HELPER_H
 #define SOM_SESSION_HELPER_H
 
@@ -16,7 +18,7 @@ using namespace std;
  * @param data Python list matrix
  * @return Double matrix
  */
-vector<vector<double> > list_matrix_to_double_matrix(boost::python::list &data);
+vector<DataItem > list_matrix_to_dataset(boost::python::list &data);
 
 /**
  * Convert cpp double matrix to python list matrix

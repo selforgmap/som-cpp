@@ -8,18 +8,20 @@
 #include <boost/python/list.hpp>
 #include <vector>
 
-vector<vector<double> > list_matrix_to_double_matrix(boost::python::list &data){
-    vector<vector<double> > matrix;
+#include "../../src/struct/dataitem.h"
+
+vector<DataItem> list_matrix_to_dataset(boost::python::list &data){
+    vector<DataItem> dataset;
 
     for (int i = 0; i < len(data); ++i) {
-        vector<double> item;
+        DataItem dataitem;
         for (int j = 0; j < len(data[i]); j++){
-            item.push_back(boost::python::extract<double>(data[i][j]));
+            dataitem.features.push_back(boost::python::extract<double>(data[i][j]));
         }
-        matrix.push_back(item);
+        dataset.push_back(dataitem);
     }
 
-    return matrix;
+    return dataset;
 }
 
 boost::python::list double_matrix_to_list_matrix(vector<vector<double> > data){

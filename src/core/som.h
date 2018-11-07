@@ -44,6 +44,11 @@ public:
     SOM();
 
     /**
+     * Initialize nodes
+     */
+    void Initialize();
+
+    /**
      * Get the next input vector
      * @param is_random Random selection of the next input vector
      * @return The next data item
