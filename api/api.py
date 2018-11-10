@@ -2,8 +2,10 @@
 
 from flask import Flask
 from flask import jsonify
+from flask import request
 import som
 import json
+import unicodedata
 
 # Create the application instance
 app = Flask(__name__)
@@ -11,31 +13,36 @@ app.config['JSON_SORT_KEYS'] = False
 
 
 # Create a URL route in our application for "/"
-@app.route('/')
-def home():
+@app.route('/train', methods=['GET', 'POST'])
+def train():
+
+    # Load request data
+    data = request.json
 
     # Create a session of SOM
     session = som.Session()
 
     # Set configurations
-    session.x_dim = 3
-    session.x_dim = 5
-    session.dimension = 3
-    session.grid_type = "RECTANGULAR"
-    session.iteration_limit = 100
-    session.starting_learning_rate = 0.5
-    session.node_initialization_method = "RANDOM"
-    session.learning_rate_type = "CONSTANT"
-    session.neighborhood_type = "BUBBLE"
-    session.min_node_weight = 1
-    session.max_node_weight = 100
+    # TODO: Set default value
+    session.x_dim                      = data['x_dim']
+    session.y_dim                      = data['y_dim']
+    session.dimension                  = data['dimension']
+    session.grid_type                  = data['grid_type'].encode('ascii','ignore').upper()
+    session.iteration_limit            = data['iteration_limit']
+    session.starting_learning_rate     = data['starting_learning_rate']
+    session.node_initialization_method = data['node_initialization_method'].encode('ascii','ignore')
+    session.learning_rate_type         = data['learning_rate_type'].encode('ascii','ignore').upper()
+    session.neighborhood_type          = data['neighborhood_type'].encode('ascii','ignore').upper()
+    session.min_node_weight            = data['min_node_weight']
+    session.max_node_weight            = data['max_node_weight']
+
+    dataset = data['dataset'] if  'dataset' in data else [[]]
 
     # Start training
     session.Initialize();
     print(session.GetResult())
 
-    data = [[1,1,1],[99,99,99]]
-    session.Train(data);
+    session.Train(dataset);
 
     # Create response
     res = {
@@ -50,7 +57,8 @@ def home():
         'neighborhood_type' : session.neighborhood_type,
         'min_node_weight' : session.min_node_weight,
         'max_node_weight' : session.max_node_weight,
-        'result' : session.GetResult()
+        'result' : session.GetResult(),
+        'dataset': dataset # TODO: Temp
     }
 
     print (res)
