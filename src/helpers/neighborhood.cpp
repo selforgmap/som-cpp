@@ -21,7 +21,7 @@ float Neighborhood::Calculate(Neighborhood::type type, Node bmu, int node_index,
 
 float Neighborhood::BubbleNeighborhood(Node bmu, int node_index, int iteration){
     // TODO:
-    if (bmu.distance_to[node_index] > 1){
+    if (bmu.distance_to[node_index] > 2){
         return 0;
     } else {
         return 1;

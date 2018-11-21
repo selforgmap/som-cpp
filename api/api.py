@@ -46,19 +46,24 @@ def train():
 
     # Create response
     res = {
-        'x_dim'  : session.x_dim,
-        'y_dim'  : session.y_dim,
-        'dimension' : session.dimension,
-        'grid_type' : session.grid_type,
-        'iteration_limit' : session.iteration_limit,
-        'starting_learning_rate' : session.starting_learning_rate,
-        'node_initialization_method' : session.node_initialization_method,
-        'learning_rate_type' : session.learning_rate_type,
-        'neighborhood_type' : session.neighborhood_type,
-        'min_node_weight' : session.min_node_weight,
-        'max_node_weight' : session.max_node_weight,
-        'result' : session.GetResult(),
-        'dataset': dataset # TODO: Temp
+    	'dataset' : dataset,
+    	'config' : {
+	        'x_dim' : session.x_dim,
+	        'y_dim'  : session.y_dim,
+	        'dimension' : session.dimension,
+	        'grid_type' : session.grid_type,
+	        'iteration_limit' : session.iteration_limit,
+	        'starting_learning_rate' : session.starting_learning_rate,
+	        'node_initialization_method' : session.node_initialization_method,
+	        'learning_rate_type' : session.learning_rate_type,
+	        'neighborhood_type' : session.neighborhood_type,
+	        'min_node_weight' : session.min_node_weight,
+	        'max_node_weight' : session.max_node_weight,
+    	},
+    	'result' : {
+    		'weight_matrix': session.GetResult(),
+    		'umatrix' : { }
+    	}
     }
 
     print (res)

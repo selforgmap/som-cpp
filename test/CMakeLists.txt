@@ -14,7 +14,7 @@ add_executable(
         unit_tests
         main_test.cpp
         grid_test.cpp
-        ../src/helpers/neighborhood.cpp ../src/helpers/neighborhood.h ../src/struct/config.h)
+        ../src/helpers/neighborhood.cpp ../src/helpers/neighborhood.h)
 
 target_link_libraries(
         unit_tests

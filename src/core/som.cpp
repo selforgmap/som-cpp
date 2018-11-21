@@ -62,6 +62,7 @@ void SOM::Train(vector<DataItem> &dataset){
     this->dataset = dataset;
 
     // For each iteration
+    // TODO: Set all data items per each iteration
     for (int i = 1; i <= this->iteration_limit; ++i){
 
         // Get next input vector
