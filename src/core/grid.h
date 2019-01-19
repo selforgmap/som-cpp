@@ -67,7 +67,6 @@ public:
      */
     string ToString();
 
-
     /**
      * Calculate the (x,y) coordinates of the location of a node
      * @param node_index Index of the node
@@ -77,6 +76,5 @@ public:
 
     vector<vector<double> > GetWeightMatrix();
 };
-
 
 #endif //SOM_GRID_H
