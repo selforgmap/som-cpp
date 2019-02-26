@@ -1,0 +1,12 @@
+language: cpp
+
+compiler:
+  - gcc
+  - clang
+
+before_script:
+  - cmake -H. -Bbuild
+  - cd build
+  - cmake --build .
+
+script: ./bin/unit_tests
